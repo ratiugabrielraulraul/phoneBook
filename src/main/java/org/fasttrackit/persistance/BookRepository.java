@@ -9,14 +9,14 @@ import java.util.List;
 
 public class BookRepository {
 
-    public void createBook(String firstName, String lastName, int phoneNumber) throws SQLException, IOException, ClassNotFoundException {
+    public void createBook(String firstName, String lastName, String phoneNumber) throws SQLException, IOException, ClassNotFoundException {
         String insertSql = "INSERT INTO book (first_name, last_name , phone_number) VALUES (?,?,?)";
 
         try (Connection connection = DatabaseConfiguration.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(insertSql)) {
             preparedStatement.setString(1, firstName);
             preparedStatement.setString(2, lastName);
-            preparedStatement.setInt(3, phoneNumber);
+            preparedStatement.setString(3, phoneNumber);
 
             preparedStatement.executeUpdate();
 
@@ -36,7 +36,7 @@ public class BookRepository {
                 book.setId(resultSet.getLong("id"));
                 book.setFirstName(resultSet.getString("first_name"));
                 book.setLastName(resultSet.getString("last_name"));
-                book.setPhoneNumber(resultSet.getInt("phone_number"));
+                book.setPhoneNumber(resultSet.getString("phone_number"));
                 books.add(book);
             }
             return books;
@@ -61,8 +61,8 @@ public class BookRepository {
 
          try(Connection connection = DatabaseConfiguration.getConnection();
          PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-             preparedStatement.setLong(1,id);
-             preparedStatement.setString(2,lastName);
+             preparedStatement.setString(1,lastName);
+             preparedStatement.setLong(2, id);
              preparedStatement.executeUpdate();
          }
 

@@ -14,13 +14,13 @@ public class BookService {
 
     public void createBook(SaveBookRequest request) throws SQLException, IOException, ClassNotFoundException {
         System.out.println("Creating Book: " +request);
-        bookRepository.createBook(request.getFirstName(), request.getLastName() ,request.getPhoneNumber());
+        bookRepository.createBook(request.getFirstName(), request.getLastName() , request.getPhoneNumber());
 
     }
 
-    public List<Book> getBook() {
+    public List<Book> getBook() throws SQLException, IOException, ClassNotFoundException {
         System.out.println("Retrieving book...");
-     return getBook();
+        return bookRepository.getBook();
 
     }
 
@@ -30,9 +30,8 @@ public class BookService {
 
     }
     public void updateBook(long id, UpdateBookRequest request) throws SQLException, IOException, ClassNotFoundException {
-        System.out.println("Updating book:" +id + ":" +request);
-        bookRepository.updateBook(id,request.getLastName());
-
+        System.out.println("Updating book:" +id + ":" + request.getLastName());
+        bookRepository.updateBook(id, request.getLastName());
     }
 
 

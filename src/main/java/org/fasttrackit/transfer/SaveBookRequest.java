@@ -3,7 +3,7 @@ package org.fasttrackit.transfer;
 public class SaveBookRequest {
     private  String firstName;
     private String lastName;
-    private int phoneNumber;
+    private String phoneNumber;
 
     public String getFirstName() {
         return firstName;
@@ -21,11 +21,11 @@ public class SaveBookRequest {
         this.lastName = lastName;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

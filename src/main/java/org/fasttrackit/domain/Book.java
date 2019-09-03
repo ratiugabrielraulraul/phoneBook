@@ -4,7 +4,7 @@ public class Book {
     private long id;
     private String firstName;
     private String lastName;
-    private int phoneNumber;
+    private String phoneNumber;
 
     public long getId() {
         return id;
@@ -30,11 +30,11 @@ public class Book {
         this.lastName = lastName;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
